@@ -1,0 +1,81 @@
+.postitContainer {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  margin: 25px;
+  min-width: 200px;
+  min-height: 200px;
+  transform: rotate(20deg);
+  background: #fff;
+  border: solid #41403e;
+  border-width: 3px 2px 3px 3px;
+  border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
+  transition: all 0.5s;
+  padding: 1rem;
+  box-shadow: 3px 3px 1px 5px #41403e;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+
+    input,
+    textarea,
+    button {
+      font-size: 0.4rem;
+    }
+    input,
+    textarea {
+      border: none;
+      border-bottom: 1px solid #686868;
+      resize: none;
+      padding: 0.2rem;
+      &:focus {
+        outline: 1px solid #747474;
+      }
+    }
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    .contactback {
+      background: transparent;
+      border: none;
+      height: 10%;
+      width: 10%;
+      img {
+        width: 100%;
+      }
+    }
+    .contactSubmit {
+      position: relative;
+      background: transparent;
+
+      border: none;
+      cursor: pointer;
+      transition: all 0.5s;
+      &::before {
+        content: " ";
+        position: absolute;
+        top: 70%;
+        width: 100%;
+        height: 0;
+        opacity: 0;
+        transition: all 0.3s;
+        border-bottom: 2px solid #41403e;
+        border-radius: 20% 80% 20% 80%;
+      }
+
+      &:hover {
+        color: rgb(19, 19, 19);
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.postItOnZoom {
+  box-shadow: none;
+}

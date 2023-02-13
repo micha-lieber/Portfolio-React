@@ -1,0 +1,55 @@
+div {
+  .homeContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    background: lightgrey;
+
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform-origin: bottom;
+    transition: all 0.5s;
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
+div {
+  .homeContainer.dark {
+    background: black;
+    h1 {
+      color: whitesmoke;
+    }
+  }
+}
+
+.zoomOnPost {
+  transform: rotate(-20deg) scale(3.2) translateX(-28%) translateY(8%);
+}
+
+.moveAnim {
+  animation: lookUp 1s linear 1;
+}
+
+@keyframes lookUp {
+  0% {
+    transform: perspective(450px);
+  }
+  25% {
+    transform: perspective(450px) rotateX(20deg) scale(0.8) translateY(5vh);
+  }
+  50% {
+    transform: perspective(450px) rotateX(40deg) scale(0.8) translateY(10vh);
+  }
+  75% {
+    transform: perspective(450px) rotateX(80deg) translateY(50vh) scale(0.6);
+  }
+  100% {
+    transform: perspective(450px) rotateX(80deg) translateY(50vh) scale(0.4);
+  }
+}
