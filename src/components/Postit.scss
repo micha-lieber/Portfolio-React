@@ -1,10 +1,10 @@
 .postitContainer {
   position: absolute;
-  right: 10%;
+  right: 9%;
   bottom: 10%;
   margin: 25px;
-  min-width: 200px;
-  min-height: 200px;
+  min-width: 150px;
+  min-height: 150px;
   transform: rotate(20deg);
   background: #fff;
   border: solid #41403e;
@@ -13,6 +13,17 @@
   transition: all 0.5s;
   padding: 1rem;
   box-shadow: 3px 3px 1px 5px #41403e;
+  cursor: pointer;
+  &::before {
+    content: "*click*";
+    background: url("../assets/arrow.png") center/cover;
+    position: absolute;
+    bottom: 110%;
+    left: 0;
+    width: 70px;
+    height: 100px;
+    transform: rotate(10deg);
+  }
 
   form {
     display: flex;
@@ -43,6 +54,7 @@
       border: none;
       height: 10%;
       width: 10%;
+      cursor: pointer;
       img {
         width: 100%;
       }

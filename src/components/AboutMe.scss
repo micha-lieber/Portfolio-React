@@ -1,0 +1,30 @@
+.aboutMeContainer {
+  background: white;
+  width: 210px;
+  height: 290px;
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 3px grey, 1px 1px 3px 2px black;
+  padding: 1rem;
+  transform: rotate(8deg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  cursor: pointer;
+
+  &::before {
+    content: "*click*";
+    background: url("../assets/arrow.png") center/cover;
+    position: absolute;
+    right: 100%;
+    width: 100px;
+    height: 100px;
+    transform: rotate(340deg);
+  }
+  p {
+    font-size: 0.6rem;
+  }
+}

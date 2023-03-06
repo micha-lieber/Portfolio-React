@@ -3,9 +3,7 @@ div {
     position: relative;
     width: 100%;
     height: 100%;
-
     background: lightgrey;
-
     transform-style: preserve-3d;
     display: flex;
     flex-direction: column;
@@ -14,8 +12,17 @@ div {
     transform-origin: bottom;
     transition: all 0.5s;
 
-    h1 {
+    .firstWords {
       font-size: 3rem;
+      position: absolute;
+      top: 10%;
+      font-weight: normal;
+      span {
+        font-weight: bold;
+      }
+    }
+    button {
+      z-index: 10;
     }
   }
 }
@@ -29,7 +36,15 @@ div {
 }
 
 .zoomOnPost {
-  transform: rotate(-20deg) scale(3.2) translateX(-28%) translateY(8%);
+  transform: rotate(-20deg) scale(3.2) translateX(-40%) translateY(1%);
+}
+
+.zoomOnAbout {
+  transform: rotate(-8deg) translateX(-100%) translateY(165%) scale(2.9);
+}
+
+.zoomOnTools {
+  transform: rotate(30deg) scale(3.5) translateX(30%) translateY(20%);
 }
 
 .moveAnim {

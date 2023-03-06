@@ -6,7 +6,6 @@ export const Projects = () => {
   return (
     <div className="projectsContainer">
       <h1>Projects</h1>
-      <Link to="/">to Home</Link>
     </div>
   );
 };

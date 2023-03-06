@@ -1,22 +1,24 @@
 .projectsContainer {
-  animation: slide-top-bottom 0.08s linear 1;
+  // animation: slide-top-bottom 0.08s linear 1;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 48%;
+  height: 48%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border: 2px solid red;
+
   h1 {
     font-size: 3rem;
   }
 }
 
-@keyframes slide-top-bottom {
-  0% {
-    transform: scale(0.4);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+// @keyframes slide-top-bottom {
+//   0% {
+//     transform: scale(0.4);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }

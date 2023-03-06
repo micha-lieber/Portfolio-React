@@ -8,7 +8,8 @@ function Lamp() {
   return (
     <div className="lampContainer">
       <div className={`lampshade`}>Light/dark mode</div>
-      {theme === "light" && <div className="shine">Lamp</div>}
+      <div className="shine">Lamp</div>
+      {/* {theme === "light" && <div */}
       <div
         className={`lampButton ${theme === "dark" ? "clicked" : ""}`}
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}

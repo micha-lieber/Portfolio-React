@@ -20,10 +20,10 @@ export default function Postit({ setPostZoom, postZoom }) {
           ? () => {
               handleZoom();
             }
-          : console.log("works")
+          : null
       }
     >
-      <h4>Contact Me</h4>
+      <h2>contact me</h2>
       {postZoom && (
         <form>
           <input type="text" placeholder="Your Name" />

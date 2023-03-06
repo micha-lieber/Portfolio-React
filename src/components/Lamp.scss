@@ -1,14 +1,14 @@
 .lampContainer {
   position: absolute;
   top: 10%;
-  left: 25%;
+  left: 10%;
   width: 200px;
   height: 200px;
   border: 2px solid black;
   border-radius: 50%;
   background: white;
   box-shadow: 1px 3px 2px 2px black;
-  transform: rotate(330deg);
+  transform: rotate(300deg);
   &::before {
     content: "  ";
     position: absolute;
@@ -58,6 +58,17 @@
     border: 1px solid black;
     border-radius: 50%;
     box-shadow: 1px 2px 1px 1px grey, inset 1px 1px 1px 1px lightgrey;
+    cursor: pointer;
+
+    &::before {
+      content: "*click*";
+      background: url("../assets/arrow.png") center/cover;
+      position: absolute;
+      bottom: 80%;
+      right: 50%;
+      width: 70px;
+      height: 100px;
+    }
   }
   .clicked {
     box-shadow: inset 1px 1px 1px 1px grey;
