@@ -25,10 +25,19 @@ export default function Postit({ setPostZoom, postZoom }) {
     >
       <h2>contact me</h2>
       {postZoom && (
-        <form>
-          <input type="text" placeholder="Your Name" />
-          <input type="email" placeholder="Your Email" />
-          <textarea placeholder="Your Message" cols="30" rows="10"></textarea>
+        // using formsubmit.co
+        <form
+          action="https://formsubmit.co/2e3e0fd2cde3c89e22647ab5b2264617"
+          method="POST"
+        >
+          <input type="text" name="name" placeholder="Your Name" />
+          <input type="email" name="email" placeholder="Your Email" />
+          <textarea
+            placeholder="Your Message"
+            name="message"
+            cols="30"
+            rows="10"
+          ></textarea>
           <div className="buttonContainer">
             <button className="contactback" onClick={(e) => handleZoomOut(e)}>
               <img src={backarrow} alt="back to Home" />

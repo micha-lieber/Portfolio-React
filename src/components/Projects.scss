@@ -1,19 +1,55 @@
 .projectsContainer {
-  // animation: slide-top-bottom 0.08s linear 1;
   position: absolute;
-  width: 48%;
+  width: 40%;
   height: 48%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 2px solid red;
+  border: 30px solid black;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 2px grey;
 
-  h1 {
-    font-size: 3rem;
+  &::after {
+    content: "";
+    background-color: grey;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 100%;
+    border-radius: 50%;
+  }
+  .con {
+    padding: 1rem;
+    overflow: hidden;
+    background: lightgrey;
+    width: 100%;
+
+    .projectsheading {
+      color: black;
+      font-size: 1.7rem;
+      padding: 0.1rem;
+    }
+    .slideshow-container {
+      overflow: hidden;
+      padding: 1rem;
+
+      .slide {
+        a {
+          border-radius: 15px;
+
+          div {
+            overflow: hidden;
+            border-radius: 8px;
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
   }
 }
-
 // @keyframes slide-top-bottom {
 //   0% {
 //     transform: scale(0.4);

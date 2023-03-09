@@ -1,11 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Projects.scss";
+import toffeePrev from "../assets/Toffeespypreview.png";
 
 export const Projects = () => {
   return (
     <div className="projectsContainer">
-      <h1>Projects</h1>
+      <div className="con">
+        <h2 className="projectsheading">Projects</h2>
+        <div className="slideshow-container">
+          <div className="slide">
+            <a
+              href="https://spotify-clone1-omega.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div>
+                <img src={toffeePrev} alt="Preview for Toffeespy" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
