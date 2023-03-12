@@ -1,25 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Projects.scss";
-import toffeePrev from "../assets/Toffeespypreview.png";
+import { SlidingComp } from "./Sliding_comp";
 
 export const Projects = () => {
+  const [activation, setActivation] = useState(false);
+
   return (
-    <div className="projectsContainer">
-      <div className="con">
+    <div className={`projectsContainer ${activation ? "turnOff" : ""}`}>
+      <div className={`con ${activation ? "turnScreenOff" : ""}`}>
         <h2 className="projectsheading">Projects</h2>
-        <div className="slideshow-container">
-          <div className="slide">
-            <a
-              href="https://spotify-clone1-omega.vercel.app/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div>
-                <img src={toffeePrev} alt="Preview for Toffeespy" />
-              </div>
-            </a>
-          </div>
-        </div>
+        <SlidingComp />
+      </div>
+      <div className="button" onClick={() => setActivation(!activation)}>
+        <div className="strich"></div>
       </div>
     </div>
   );

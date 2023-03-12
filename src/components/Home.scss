@@ -1,42 +1,36 @@
-div {
-  .homeContainer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: lightgrey;
-    transform-style: preserve-3d;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform-origin: bottom;
-    transition: all 0.5s;
+.homeContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: lightgrey;
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform-origin: bottom;
+  transition: all 0.5s;
 
-    .firstWords {
-      font-size: 3rem;
-      position: absolute;
-      top: 10%;
-      font-weight: normal;
-      span {
-        font-weight: bold;
-      }
-    }
-    button {
-      z-index: 10;
+  .firstWords {
+    font-size: clamp(1rem, 3vw, 3rem);
+    position: absolute;
+    top: 10%;
+    font-weight: normal;
+    span {
+      font-weight: bold;
     }
   }
 }
-div {
-  .homeContainer.dark {
-    background: black;
-    h1 {
-      color: whitesmoke;
-    }
+
+.homeContainer.dark {
+  background: black;
+  h1 {
+    color: whitesmoke;
   }
 }
 
 .zoomOnPost {
-  transform: rotate(-20deg) scale(3.2) translateX(-40%) translateY(1%);
+  transform: rotate(-20deg) scale(3.2) translateX(-23%) translateY(12%);
 }
 
 .zoomOnAbout {
@@ -44,27 +38,11 @@ div {
 }
 
 .zoomOnTools {
-  transform: rotate(30deg) scale(3.5) translateX(30%) translateY(20%);
+  transform: rotate(40deg) scale(4) translateX(21%) translateY(20%);
 }
 
-.moveAnim {
-  animation: lookUp 1s linear 1;
-}
-
-@keyframes lookUp {
-  0% {
-    transform: perspective(450px);
-  }
-  25% {
-    transform: perspective(450px) rotateX(20deg) scale(0.8) translateY(5vh);
-  }
-  50% {
-    transform: perspective(450px) rotateX(40deg) scale(0.8) translateY(10vh);
-  }
-  75% {
-    transform: perspective(450px) rotateX(80deg) translateY(50vh) scale(0.6);
-  }
-  100% {
-    transform: perspective(450px) rotateX(80deg) translateY(50vh) scale(0.4);
+@media (min-width: 900px) {
+  .zoomOnTools {
+    transform: rotate(40deg) scale(3.5) translateX(30%) translateY(20%);
   }
 }

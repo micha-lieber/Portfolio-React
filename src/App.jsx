@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.scss";
-import { Home, Projects } from "./components/index.js";
+import { Home } from "./components/index.js";
 import { ThemeContext } from "./context/Theme";
 import { CursorCtx } from "./context/CursorContext";
 
 function App() {
   const { theme } = useContext(ThemeContext);
-  const { setCursorPos, cursorPos } = useContext(CursorCtx);
+  const { setCursorPos } = useContext(CursorCtx);
   const moveHandler = (e) => {
     setCursorPos({ x: e.clientX, y: e.clientY });
     // console.log(cursorPos);
@@ -21,7 +21,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </div>

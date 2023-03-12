@@ -1,14 +1,8 @@
 import "./Tools.scss";
-import React, { createElement, useContext, useRef, useState } from "react";
-import css from "../assets/icons/CSS3_logo_and_wordmark.svg.png";
-import html from "../assets/icons/html.png";
-import sass from "../assets/icons/sass-1.png";
-import react from "../assets/icons/react.png";
-import firebase from "../assets/icons/firebase.png";
-import bootstrap from "../assets/icons/bt-2.png";
-import github from "../assets/icons/gh-1.png";
-import javascript from "../assets/icons/js-1.png";
+import React, { useContext, useState } from "react";
+
 import { CursorCtx } from "../context/CursorContext";
+import Skills from "./Skills";
 
 const Confetto = ({ pos }) => {
   const { cursorPos } = useContext(CursorCtx);
@@ -88,34 +82,7 @@ function Tools({ toolsZoom, setToolsZoom }) {
         <div className="lochImLocher"></div>
       </div>
       <div className="confettiContainer">{confetti}</div>
-      {toolsZoom && (
-        <div className="tools">
-          <div>
-            <img src={css} alt="CSS" title="CSS 3" />
-          </div>
-          <div>
-            <img src={html} alt="HTML" title="HTML 5" />
-          </div>
-          <div>
-            <img src={sass} alt="SASS" title="SASS" />
-          </div>
-          <div>
-            <img src={react} alt="React" title="React" />
-          </div>
-          <div>
-            <img src={firebase} alt="Firebase" title="Google Firebase" />
-          </div>
-          <div>
-            <img src={bootstrap} alt="Bootstrap" title="Bootstrap" />
-          </div>
-          <div>
-            <img src={javascript} alt="Javascript" title="Javascript" />
-          </div>
-          <div>
-            <img src={github} alt="Github" title="Github" />
-          </div>
-        </div>
-      )}
+      {toolsZoom && <Skills />}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import "./AboutMe.scss";
 import arrow from "../assets/arrow.png";
+import AboutMeText from "./AboutMeText";
 
 function AboutMe({ aboutZoom, setAboutZoom }) {
   const handleZoom = () => {
@@ -11,20 +12,7 @@ function AboutMe({ aboutZoom, setAboutZoom }) {
       <h2>about me</h2>
       {/* "Exposure to a broad spectrum of challenging international working
       environments and working cultures" */}
-      {aboutZoom && (
-        <>
-          <p>
-            My goal is to create accessable, secure and playful websites to
-            ensure a pleasant user-experience for a wide range of people.
-          </p>
-          <p>
-            I studied social work a while ago, but realized after 10 years of
-            struggling, that my talents lie in IT and tech. So i decided to
-            pursue that career.
-          </p>
-          <p>My current base is Berlin</p>
-        </>
-      )}
+      {aboutZoom && <AboutMeText />}
     </div>
   );
 }

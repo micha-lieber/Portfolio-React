@@ -1,0 +1,47 @@
+.tools {
+  .css {
+    padding: 0.25rem;
+  }
+  display: grid;
+
+  position: absolute;
+  top: 85%;
+  left: 55%;
+  height: 40px;
+  width: 100px;
+  transform: rotate(320deg);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.1rem;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .tools {
+    display: grid;
+    position: static;
+    height: auto;
+    width: 100%;
+    transform: rotate(0deg);
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    div {
+      width: auto;
+      height: auto;
+
+      // grid-column-start: auto;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

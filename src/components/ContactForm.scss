@@ -1,0 +1,89 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+
+  input,
+  textarea,
+  button {
+    font-size: 0.4rem;
+  }
+  input,
+  textarea {
+    border: none;
+    border-bottom: 1px solid #686868;
+    resize: none;
+    padding: 0.2rem;
+    &:focus {
+      outline: 1px solid #747474;
+    }
+  }
+}
+.buttonContainer {
+  display: flex;
+  justify-content: space-between;
+
+  .linked {
+    img {
+      width: 100%;
+    }
+  }
+  .contactback {
+    background: transparent;
+    border: none;
+    height: 10%;
+    width: 10%;
+    cursor: pointer;
+    img {
+      width: 100%;
+    }
+  }
+  .contactSubmit {
+    position: relative;
+    background: transparent;
+
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 70%;
+      width: 100%;
+      height: 0;
+      opacity: 0;
+      transition: all 0.3s;
+      border-bottom: 2px solid #41403e;
+      border-radius: 20% 80% 20% 80%;
+    }
+
+    &:hover {
+      color: rgb(19, 19, 19);
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+@media (max-width: 760px) {
+  form {
+    gap: 0.5rem;
+    input,
+    textarea,
+    button {
+      font-size: 1rem;
+    }
+    input,
+    textarea {
+      padding: 0.5rem;
+    }
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    button {
+      font-size: 1.2rem;
+    }
+  }
+}

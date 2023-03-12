@@ -1,0 +1,49 @@
+.slideshowContainer {
+  overflow: hidden;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .slideContainer {
+    height: 100%;
+    width: 95%;
+
+    .slide {
+      opacity: 0.9;
+      border: 1px solid black;
+      height: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+      border-radius: 8px;
+      transition: all 0.5s;
+    }
+    .slideOne {
+      background: url("../assets/Toffeespypreview.png") left / cover;
+    }
+    .slideTwo {
+      background: url("../assets/background.png") left / cover;
+    }
+    .slideThree {
+      background: url("../assets/index.jpeg") left / cover;
+    }
+  }
+  .sliderBtn {
+    background: transparent;
+    height: 100%;
+    width: 5%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .prevSlide {
+    left: 0;
+  }
+  .nextSlide {
+    right: 0;
+  }
+}
