@@ -7,7 +7,7 @@
   top: 10%;
   border: 1px solid black;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px 3px grey, 1px 1px 3px 2px black;
+  box-shadow: 2px 2px 5px 3px grey, 2px 2px 3px 2px black;
   padding: 1rem;
   transform: rotate(8deg);
   display: flex;
@@ -15,6 +15,7 @@
   gap: 0.3rem;
   cursor: pointer;
   transition: all 0.3s;
+
   &::before {
     content: "*click*";
     background: url("../assets/arrow.png") center/cover;

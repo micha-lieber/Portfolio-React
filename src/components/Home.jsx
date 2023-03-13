@@ -10,6 +10,8 @@ import Tools from "./Tools";
 import AboutMe from "./AboutMe";
 import { useWindowSize } from "../hooks/useWindowSize";
 import Mobile from "./Mobile";
+import CoffeeStain from "./CoffeeStain";
+import References from "./References";
 
 export const Home = () => {
   const [postZoom, setPostZoom] = useState(false);
@@ -36,6 +38,8 @@ export const Home = () => {
           <Lamp />
           <Postit setPostZoom={setPostZoom} postZoom={postZoom} />
           <Tools setToolsZoom={setToolsZoom} toolsZoom={toolsZoom} />
+          <References />
+          <CoffeeStain />
         </div>
       )}
       {size.width < 761 && (
