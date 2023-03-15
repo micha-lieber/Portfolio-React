@@ -56,7 +56,7 @@ export default function ContactForm({ setPostZoom }) {
             </svg>
           </Link>
           <Link
-            to="https://www.linkedin.com"
+            to="https://www.linkedin.com/in/michael-lieber-62b87b266/"
             className={`linked`}
             style={
               size.width < 761

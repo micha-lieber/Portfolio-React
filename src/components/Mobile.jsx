@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import AboutMeText from "./AboutMeText";
 import ContactForm from "./ContactForm";
 import { Projects } from "./Projects";
 import Skills from "./Skills";
 import "./Mobile.scss";
+import { ThemeContext } from "../context/Theme";
 
 export default function Mobile() {
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <div className="mobileContainer">
+    <div className={`mobileContainer ${theme === "dark" ? "dark" : ""}`}>
       <div className="navbar">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>

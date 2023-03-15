@@ -1,92 +1,105 @@
-.lampContainer {
-  position: absolute;
-  top: 10%;
-  left: 5%;
-  width: 200px;
-  height: 200px;
-  border: 2px solid black;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 1px 3px 2px 2px black;
-  transform: rotate(300deg);
-  &::before {
-    content: "  ";
+@mixin lampsize($lampheight) {
+  .lampContainer {
     position: absolute;
-    bottom: 65%;
-
-    left: 80px;
-    width: 16px;
-    height: 60px;
-    background: black;
-    border: 10px solid black;
-    border-radius: 10px;
-  }
-  &::after {
-    content: "";
-    position: absolute;
-    left: 65px;
-    top: 60px;
-    background: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 40% 40% 0% 0%;
-    border: 1px solid black;
-    box-shadow: inset 1px -1px 5px 5px lightgrey;
-  }
-  .lampshade {
-    z-index: 1;
-    position: absolute;
-    top: 110px;
-    left: 15px;
-    width: 160px;
-    height: 90px;
-    background: white;
-    border-radius: 3rem 3rem 2rem 2rem;
-    border: 1px solid black;
-    box-shadow: inset 1px 5px 2px 2px lightgrey, 2px 2px 2px 1px lightgrey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .lampButton {
-    width: 20px;
-    height: 20px;
-    background: white;
-    position: absolute;
-    left: 20px;
-    top: 30%;
-    border: 1px solid black;
+    top: 6%;
+    left: 5%;
+    width: $lampheight;
+    height: $lampheight;
+    border: 2px solid black;
     border-radius: 50%;
-    box-shadow: 1px 2px 1px 1px grey, inset 1px 1px 1px 1px lightgrey;
-    cursor: pointer;
-
+    background: white;
+    box-shadow: 1px 3px 2px 2px black;
+    transform: rotate(300deg);
     &::before {
-      content: "*click*";
-      background: url("../assets/arrow.png") center/cover;
+      content: "  ";
       position: absolute;
-      bottom: 80%;
-      right: 50%;
-      width: 70px;
-      height: 100px;
+      bottom: 65%;
+      left: calc($lampheight/2.5);
+      width: calc($lampheight/12);
+      height: calc($lampheight/3.4);
+      background: black;
+      border: 10px solid black;
+      border-radius: 10px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: calc($lampheight/3.1);
+      top: calc($lampheight/3.4);
+      background: white;
+      width: calc($lampheight/3.4);
+      height: calc($lampheight/3.4);
+      border-radius: 40% 40% 0% 0%;
+      border: 1px solid black;
+      box-shadow: inset 1px -1px 5px 5px lightgrey;
+    }
+    .lampshade {
+      z-index: 1;
+      position: absolute;
+      top: calc($lampheight/1.8181);
+      left: calc($lampheight/13.33);
+      width: calc($lampheight/1.25);
+      height: calc($lampheight/2.22);
+      background: white;
+      border-radius: 3rem 3rem 2rem 2rem;
+      border: 1px solid black;
+      box-shadow: inset 1px 5px 2px 2px lightgrey, 2px 2px 2px 1px lightgrey;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .lampButton {
+      width: 20px;
+      height: 20px;
+      background: white;
+      position: absolute;
+      left: 20px;
+      top: 30%;
+      border: 1px solid black;
+      border-radius: 50%;
+      box-shadow: 1px 2px 1px 1px grey, inset 1px 1px 1px 1px lightgrey;
+      cursor: pointer;
+
+      &::before {
+        content: "*click*";
+        background: url("../assets/arrow.png") center/cover;
+        position: absolute;
+        bottom: 80%;
+        right: 50%;
+        width: 70px;
+        height: 100px;
+      }
+    }
+    .clicked {
+      box-shadow: inset 1px 1px 1px 1px grey;
+    }
+    .shine {
+      pointer-events: none;
+      position: absolute;
+      top: 60%;
+      left: -90%;
+      z-index: 0;
+      border-bottom: calc($lampheight * 3) solid rgba(255, 255, 206, 0.2);
+      width: calc($lampheight * 3);
+      height: calc($lampheight * 3);
+
+      border-left: 120px solid transparent;
+      border-right: 140px solid transparent;
+
+      border-radius: 30%;
+      filter: blur(1rem);
     }
   }
-  .clicked {
-    box-shadow: inset 1px 1px 1px 1px grey;
-  }
-  .shine {
-    pointer-events: none;
-    position: absolute;
-    top: 60%;
-    left: -90%;
-    z-index: 0;
-    border-bottom: 600px solid rgba(255, 255, 206, 0.336);
-    width: 600px;
-    height: 600px;
+}
 
-    border-left: 120px solid transparent;
-    border-right: 140px solid transparent;
+@media (max-width: 943px) {
+  @include lampsize(200px);
+}
 
-    border-radius: 30%;
-    filter: blur(1rem);
-  }
+@media (min-width: 944px) and (max-width: 1173px) {
+  @include lampsize(250px);
+}
+
+@media (min-width: 1174px) {
+  @include lampsize(300px);
 }

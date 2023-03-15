@@ -1,17 +1,21 @@
 import React from "react";
+import "./ReferencesText.scss";
 
 export default function ReferencesText() {
   const references = [
     {
+      id: "ref1",
       person: "ChatGPT",
       testimonial:
-        "[Colleague's name] is a valuable asset to any team. They bring a positive attitude, strong work ethic, and excellent collaboration skills to every project. I highly recommend [colleague's name] and believe they would be a great addition to any organization.",
+        "[Colleague's name] is a valuable asset to any team. They bring a positive attitude, strong work ethic, and excellent collaboration skills to every project.",
     },
+    { id: "ref2", person: "somebody else", testimonial: "Can do work." },
+    { id: "ref3", person: "My Plants", testimonial: "Waters us accordingly." },
   ];
   return (
-    <div>
+    <div className="refTextCon">
       {references.map((ref) => (
-        <div>
+        <div key={ref.id}>
           <h4>{ref.person} says:</h4>
           <p>{ref.testimonial}</p>
         </div>

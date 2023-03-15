@@ -9,7 +9,7 @@ export const Projects = () => {
     <div className={`projectsContainer ${activation ? "turnOff" : ""}`}>
       <div className={`con ${activation ? "turnScreenOff" : ""}`}>
         <h2 className="projectsheading">Projects</h2>
-        <SlidingComp />
+        <SlidingComp activation={activation} />
       </div>
       <div className="button" onClick={() => setActivation(!activation)}>
         <div className="strich"></div>

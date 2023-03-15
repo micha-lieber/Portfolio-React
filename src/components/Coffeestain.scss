@@ -1,10 +1,12 @@
+$stainSize: 100px;
+
 .coffeestain {
   position: absolute;
   bottom: 35%;
-  right: 5%;
+  right: 9%;
 
-  height: 150px;
-  width: 150px;
+  height: $stainSize;
+  width: $stainSize;
 
   div {
     position: absolute;
@@ -55,7 +57,31 @@
       width: 8%;
       height: 8%;
 
-      background: rgba(0, 0, 0, 0.301);
+      background: rgba(94, 93, 93, 0.301);
+    }
+  }
+}
+
+.coffeestain.dark {
+  .outerRing {
+    outline: 2px solid rgba(63, 62, 62, 0.904);
+    &::after {
+      background: rgb(82, 82, 82);
+    }
+  }
+  .innerRing {
+    border: 5px solid rgba(119, 119, 119, 0.5);
+    outline: 5px solid rgba(119, 119, 119, 0.5);
+
+    &::after {
+      background: rgba(255, 255, 255, 0.301);
+    }
+  }
+  .inBetweenRing {
+    border: 10px solid rgba(129, 129, 129, 0.301);
+    outline: 10px solid rgba(126, 126, 126, 0.301);
+    &::after {
+      background: rgba(255, 255, 255, 0.301);
     }
   }
 }
