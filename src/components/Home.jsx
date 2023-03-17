@@ -13,6 +13,7 @@ import Mobile from "./Mobile";
 import CoffeeStain from "./CoffeeStain";
 import References from "./References";
 import { Link } from "react-router-dom";
+import Die from "./Die";
 
 export const Home = () => {
   const [postZoom, setPostZoom] = useState(false);
@@ -51,6 +52,7 @@ export const Home = () => {
             </Link>{" "}
             on Freepik
           </p>
+          <Die />{" "}
         </div>
       )}
       {size.width < 761 && (

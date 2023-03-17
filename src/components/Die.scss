@@ -1,0 +1,280 @@
+$containerWidth: 50px;
+
+// the width of one side of the die
+$faceWidth: $containerWidth * 0.5;
+// needed to produce equilateral triangles h=sqrt(3)/2 * width
+$faceHeight: $faceWidth * 0.866;
+
+// translateZ of each face depends on the radius of the d20, https://en.wikipedia.org/wiki/Regular_icosahedron. I thought the way to go is the radius of an inscribed sphere: $faceWidth* 0.755.
+// I instead used the multiplier i found here https://codepen.io/vicentemundim/pen/nXNvBw
+$translateZ: $faceWidth * 0.335;
+
+$angle: 53deg;
+$translateY: -$faceHeight * 0.15;
+$translateY_two: $faceHeight * 0.91 + $translateY;
+$circ: 72deg;
+$modheight: $faceHeight * 0.76;
+// we need to rotate the side around all axis
+$color: rgb(0, 81, 128, 0.9);
+
+// sets the scene for the 3d transforms, including the perspective. Perspective describes the distance to the viewer more or less
+.scene {
+  position: absolute;
+  bottom: 10%;
+  width: $containerWidth;
+  height: $containerWidth;
+  perspective: 1500px;
+  border-radius: 50%;
+  transition: all 2s;
+
+  .dieShadow {
+    z-index: 0;
+    position: absolute;
+
+    width: $containerWidth;
+    height: $containerWidth;
+    background: rgb(0, 0, 0);
+    background: radial-gradient(
+      circle,
+      rgb(0, 0, 0) 0%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    border-radius: 50%;
+  }
+  .die {
+    z-index: 20;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // this is needed to pass the perspective on to the children of .die, because perspective itself only applies to the children of the element it is defined in (in this example .scene)
+    transform-style: preserve-3d;
+    transform: rotateX(-$angle);
+    transition: all 2s;
+    //   animation: roll 3s infinite;
+    &.rolling {
+      // animation for the rolling die
+    }
+    .face {
+      position: absolute;
+      // background-color: blue;
+      width: 0;
+      height: 0;
+      left: 25%;
+      color: white;
+
+      // these three lines create a equilateral triangle
+      border-bottom: $faceHeight solid $color;
+      border-left: calc($faceWidth/2) solid transparent;
+      border-right: calc($faceWidth/2) solid transparent;
+
+      //this creates a counter, called "side", that increments by 1 each time it is used
+      counter-increment: side;
+      backface-visibility: hidden;
+
+      // add the Number on the Side of the die
+      &::before {
+        content: counter(side);
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        width: $faceWidth * 2;
+        height: $faceHeight;
+        text-align: center;
+        top: $faceHeight * 0.25;
+        left: -$faceWidth;
+        font-size: $faceWidth * 0.3;
+        line-height: $faceHeight * 0.8;
+      }
+
+      // each side of the die needs to be placed accordingly
+      &:nth-child(1) {
+        transform: rotateY(0deg) rotateZ(0deg) translateZ($translateZ)
+          rotateX($angle);
+      }
+      &:nth-child(2) {
+        transform: rotateY(-2 * $circ + 36) translateZ($translateZ)
+          translateY($modheight + ($translateY_two)) rotateZ(180deg)
+          rotateX($angle);
+      }
+      &:nth-child(3) {
+        transform: rotateY(calc(-3 * $circ)) translateZ($translateZ)
+          rotateX($angle) rotateZ(0deg);
+      }
+      &:nth-child(4) {
+        transform: rotateY(-5 * $circ + 36) translateZ($translateZ)
+          translateY($modheight + ($translateY_two)) rotateZ(180deg)
+          rotateX($angle);
+      }
+      &:nth-child(5) {
+        transform: rotateY(-1 * $circ + 36) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateX(-11deg);
+      }
+
+      &:nth-child(6) {
+        transform: rotateY(-4 * $circ + 36) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateX(-11deg);
+      }
+
+      &:nth-child(7) {
+        transform: rotateY(-$circ) translateZ($translateZ) rotateX($angle)
+          rotateZ(0deg);
+      }
+      &:nth-child(8) {
+        transform: rotateY(-3 * $circ + 36) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateX(-11deg);
+      }
+
+      &:nth-child(9) {
+        transform: rotateY(-4 * $circ) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateZ(180deg) rotateX(-11deg);
+      }
+
+      &:nth-child(10) {
+        transform: rotateY(-2 * $circ) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateZ(180deg) rotateX(-11deg);
+      }
+
+      &:nth-child(11) {
+        transform: rotateY(-5 * $circ + 36) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateX(-11deg);
+      }
+      &:nth-child(12) {
+        transform: rotateY(-2 * $circ + 36) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateX(-11deg);
+      }
+
+      &:nth-child(13) {
+        transform: rotateY(0deg) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateZ(180deg) rotateX(-11deg);
+      }
+      &:nth-child(14) {
+        transform: rotateY(-4 * $circ + 36) translateZ($translateZ)
+          translateY($modheight + ($translateY_two)) rotateZ(180deg)
+          rotateX($angle);
+      }
+      &:nth-child(15) {
+        transform: rotateY(-$circ) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateZ(180deg) rotateX(-11deg);
+      }
+
+      &:nth-child(16) {
+        transform: rotateY(-3 * $circ) translateZ($faceWidth * 0.75)
+          translateY($translateY_two) rotateZ(180deg) rotateX(-11deg);
+      }
+
+      &:nth-child(17) {
+        transform: rotateY(calc(-2 * $circ)) translateZ($translateZ)
+          rotateX($angle) rotateZ(0deg);
+      }
+
+      &:nth-child(18) {
+        transform: rotateY(-1 * $circ + 36) translateZ($translateZ)
+          translateY($modheight + ($translateY_two)) rotateZ(180deg)
+          rotateX($angle);
+      }
+
+      &:nth-child(19) {
+        transform: rotateY(-4 * $circ) translateZ($translateZ) rotateX($angle)
+          rotateZ(0deg);
+      }
+
+      &:nth-child(20) {
+        transform: rotateY(-3 * $circ + 36) translateZ($translateZ)
+          translateY($modheight + ($translateY_two)) rotateZ(180deg)
+          rotateX($angle);
+      }
+    }
+    // we add classes to make the die show the corresponding side on click
+    &.show-1 {
+      transform: rotateX(-$angle);
+    }
+    &.show-2 {
+      transform: rotateX(-$angle + 180deg) rotateY(-$circ * 1);
+    }
+    &.show-3 {
+      transform: rotateX(-$angle) rotateY(3 * $circ);
+    }
+    &.show-4 {
+      transform: rotateY(-5 * $circ + 18) rotateZ(155deg) rotateX(53deg);
+    }
+    &.show-5 {
+      transform: rotateY(0 * $circ + 36);
+    }
+    &.show-6 {
+      transform: rotateY(3 * $circ + 36);
+    }
+    &.show-7 {
+      transform: rotateX(-$angle) rotateY(1 * $circ);
+    }
+    &.show-8 {
+      transform: rotateY(2 * $circ + 36);
+    }
+    &.show-9 {
+      transform: rotateY(1 * $circ) rotateZ(180deg);
+    }
+    &.show-10 {
+      transform: rotateY(3 * $circ) rotateZ(180deg);
+    }
+    &.show-11 {
+      transform: rotateY(4 * $circ + 36);
+    }
+    &.show-12 {
+      transform: rotateY(1 * $circ + 36);
+    }
+    &.show-13 {
+      transform: rotateY(0deg) rotateZ(180deg);
+    }
+    &.show-14 {
+      transform: rotateX(-$angle + 180deg) rotateY(-$circ * -1);
+    }
+    &.show-15 {
+      transform: rotateY(4 * $circ) rotateZ(180deg);
+    }
+    &.show-16 {
+      transform: rotateY(2 * $circ) rotateZ(180deg);
+    }
+    &.show-17 {
+      transform: rotateX(-$angle) rotateY(2 * $circ);
+    }
+    &.show-18 {
+      transform: rotateX(-$angle + 180deg) rotateY(-$circ * 2);
+    }
+    &.show-19 {
+      transform: rotateX(-$angle) rotateY(4 * $circ);
+    }
+    &.show-20 {
+      transform: rotateX(-$angle + 180deg) rotateY(-$circ * 5);
+    }
+  }
+}
+.buttons {
+  position: absolute;
+  bottom: 10%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  button {
+    background: grey;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 1rem;
+  }
+}
+
+$standardX: 53deg;
+$standardY: 72deg;
+$standardZ: 60deg;
+
+@keyframes roll {
+  0% {
+    transform: rotateX(-1 * $standardX) rotateY(0 * $standardY)
+      rotateZ(0 * $standardZ);
+  }
+
+  50% {
+  }
+
+  100% {
+    transform: rotateX(1 * $standardX) rotateY(-6 * $standardY)
+      rotateZ(2 * $standardZ);
+  }
+}
