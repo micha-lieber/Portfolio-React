@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./ReferencesText.scss";
+import { ThemeContext } from "../context/Theme";
 
 export default function ReferencesText() {
   const references = [
@@ -13,7 +14,7 @@ export default function ReferencesText() {
     { id: "ref3", person: "My Plants", testimonial: "Waters us accordingly." },
   ];
   return (
-    <div className="refTextCon">
+    <div className={`refTextCon `}>
       {references.map((ref) => (
         <div key={ref.id}>
           <h4>{ref.person} says:</h4>

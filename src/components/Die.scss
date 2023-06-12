@@ -1,4 +1,4 @@
-$containerWidth: 50px;
+$containerWidth: 75px;
 
 // the width of one side of the die
 $faceWidth: $containerWidth * 0.5;
@@ -15,7 +15,7 @@ $translateY_two: $faceHeight * 0.91 + $translateY;
 $circ: 72deg;
 $modheight: $faceHeight * 0.76;
 // we need to rotate the side around all axis
-$color: rgb(0, 81, 128, 0.9);
+$color: rgba(0, 0, 0, 0.9);
 
 // sets the scene for the 3d transforms, including the perspective. Perspective describes the distance to the viewer more or less
 .scene {
